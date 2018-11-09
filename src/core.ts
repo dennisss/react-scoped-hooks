@@ -29,7 +29,11 @@ interface ScopeRuntime {
 
 var activeRuntime : ScopeRuntime|null = null;
 
-export function useState<T>(value: T) : [T, (newValue: T) => void] {
+// NOTE: Don't touch this. This is just for internal usage
+export { activeRuntime as __activeRuntime };
+
+
+export function useState<T>(value: T|(() => T)) : [T, (newValue: T) => void] {
 	if(!activeRuntime) {
 		return useReactState(value);
 	}
@@ -38,19 +42,28 @@ export function useState<T>(value: T) : [T, (newValue: T) => void] {
 	var scope = boundRuntime.scope;
 	var idx = boundRuntime.stateIdx++;
 
+	var currentValue: T;
+
 	if(scope.states.length > idx) {
-		value = scope.states[idx];
+		currentValue = scope.states[idx];
 	}
 	else {
 		if(scope.states.length !== idx) {
 			throw new Error('Expected to be the very next state');
 		}
 
+		if(typeof(value) === 'function') {
+			currentValue = (value as () => T)();
+		}
+		else {
+			currentValue = value;
+		}
+
 		// Add a new entry and continue using default
-		scope.states.push(value);
+		scope.states.push(currentValue);
 	}
 
-	return [value, (newValue) => {
+	return [currentValue, (newValue) => {
 		scope.states[idx] = newValue;
 		boundRuntime.callback();
 	}];
@@ -69,7 +82,7 @@ export function useReducer<T, A>(reducer: (value: T, action: A) => T, initialVal
 }
 
 
-type EffectFunction = () => (void|(() => void));
+export type EffectFunction = () => (void|(() => void));
 
 // TODO: The subtle difference is that these must run on each mount
 export function useEffect(fn: EffectFunction, vals?: any[]) {
