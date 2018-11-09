@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useIf can change between two different states 1`] = `
+<span
+  onClick={[Function]}
+>
+  I should come first
+</span>
+`;
+
+exports[`useIf can change between two different states 2`] = `
+<span
+  onClick={[Function]}
+>
+  I will be second
+</span>
+`;

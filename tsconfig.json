@@ -1,0 +1,23 @@
+{
+	"types": ["jest"],
+	"compilerOptions": {
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"target": "es5",
+		"jsx": "react",
+		"noImplicitAny": true,
+		"removeComments": false,
+		"allowJs": true,
+		"sourceMap": false,
+		"preserveConstEnums": true,
+		"esModuleInterop": true,
+		"outDir": "./dist/",
+	},
+	"include": [
+		"src/**/*"
+	],
+	"exclude": [
+		"node_modules",
+		"**/*.spec.ts"
+	]
+}

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useState works as normal in the top-level 1`] = `
+<span
+  onClick={[Function]}
+>
+  0
+</span>
+`;
+
+exports[`useState works as normal in the top-level 2`] = `
+<span
+  onClick={[Function]}
+>
+  1
+</span>
+`;
