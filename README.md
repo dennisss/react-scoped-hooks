@@ -1,5 +1,5 @@
-Scoping an Conditionality Utilities for React Hooks
-===================================================
+Conditionality and Scoping Utilities for React Hooks
+====================================================
 
 TLDR: This adds `if` statements, loops, and more to the React Hooks API.
 

@@ -1,41 +1,42 @@
 {
-  "name": "react-scoped-hooks",
-  "version": "0.8.0",
-  "description": "Adds conditional statements and loops functionality to react hooks",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest",
-    "build": "./node_modules/.bin/tsc --project ."
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+git@github.com:dennisss/react-scoped-hooks.git"
-  },
-  "author": {
-    "name": "Dennis Shtatnov",
-    "url": "https://github.com/dennisss"
-  },
-  "license": "MIT",
-  "peerDependencies": {
-    "react": "^16.7.0-alpha.0"
-  },
-  "devDependencies": {
-    "jest": "^23.6.0",
-    "mocha": "^5.0.5",
-    "react": "^16.7.0-alpha.0",
-    "react-test-renderer": "^16.7.0-alpha.0",
-    "ts-jest": "^23.10.4",
-    "typescript": "^2.8.1"
-  },
-  "files": [
-    "dist/**/*",
-    "README.md",
-    "LICENSE",
-    "index.js"
-  ],
-  "dependencies": {
-    "@types/jest": "^23.3.9",
-    "@types/react": "^16.7.1",
-    "@types/react-test-renderer": "^16.0.3"
-  }
+	"name": "react-scoped-hooks",
+	"version": "0.8.0",
+	"description": "Adds conditional statements and loops functionality to react hooks",
+	"main": "dist/index.js",
+	"scripts": {
+		"test": "jest",
+		"build": "./node_modules/.bin/tsc --project ."
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+git@github.com:dennisss/react-scoped-hooks.git"
+	},
+	"author": {
+		"name": "Dennis Shtatnov",
+		"url": "https://github.com/dennisss"
+	},
+	"license": "MIT",
+	"peerDependencies": {
+		"react": "^16.7.0-alpha.0"
+	},
+	"devDependencies": {
+		"jest": "^23.6.0",
+		"mocha": "^5.0.5",
+		"react": "^16.7.0-alpha.0",
+		"react-test-renderer": "^16.7.0-alpha.0",
+		"ts-jest": "^23.10.4",
+		"typescript": "^2.8.1"
+	},
+	"files": [
+		"dist/**/*",
+		"README.md",
+		"LICENSE",
+		"index.js"
+	],
+	"dependencies": {
+		"@types/jest": "^23.3.9",
+		"@types/react": "^16.7.1",
+		"@types/react-test-renderer": "^16.0.3",
+		"tslib": "^1.9.3"
+	}
 }
