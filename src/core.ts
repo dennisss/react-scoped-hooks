@@ -195,9 +195,10 @@ export function useScope<T>(fn: (() => T)|null) : T|null {
 	};
 
 	// Run it!
+	let lastActiveRuntime = activeRuntime;
 	activeRuntime = runtime;
 	var ret = fn? fn() : null;
-	activeRuntime = null;
+	activeRuntime = lastActiveRuntime;
 
 
 	// Cleaning up all no longer in existance hooks

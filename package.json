@@ -1,6 +1,6 @@
 {
 	"name": "react-scoped-hooks",
-	"version": "0.8.0",
+	"version": "0.8.1",
 	"description": "Adds conditional statements and loops functionality to react hooks",
 	"main": "dist/index.js",
 	"scripts": {
@@ -20,6 +20,9 @@
 		"react": "^16.7.0-alpha.0"
 	},
 	"devDependencies": {
+		"@types/jest": "^23.3.9",
+		"@types/react": "^16.7.1",
+		"@types/react-test-renderer": "^16.0.3",
 		"jest": "^23.6.0",
 		"mocha": "^5.0.5",
 		"react": "^16.7.0-alpha.0",
@@ -34,9 +37,6 @@
 		"index.js"
 	],
 	"dependencies": {
-		"@types/jest": "^23.3.9",
-		"@types/react": "^16.7.1",
-		"@types/react-test-renderer": "^16.0.3",
 		"tslib": "^1.9.3"
 	}
 }
