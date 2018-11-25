@@ -112,10 +112,6 @@ export function useEffect(fn: EffectFunction, vals?: any[]) {
 				}
 			}
 		}
-
-		if(dirty && old.cleanup) {
-			old.cleanup();
-		}
 	}
 	else {
 		dirty = true;
@@ -130,6 +126,7 @@ export function useEffect(fn: EffectFunction, vals?: any[]) {
 		};
 
 		if(oldExists) {
+			e.cleanup = scope.effects[idx].cleanup;
 			scope.effects[idx] = e;
 		}
 		else {
@@ -155,6 +152,8 @@ export function useScope<T>(fn: (() => T)|null) : T|null {
 
 	let [ scope, updateScope ] = useState<ScopeState>(defaultScope);
 
+
+	// Should run on every cycle to refresh changes internally
 	useEffect(() => {
 		scope.effects.map((e) => {
 			if(e.dirty) {
@@ -166,14 +165,16 @@ export function useScope<T>(fn: (() => T)|null) : T|null {
 
 				// TODO: verify that react calls the new function before calling the old cleanup function
 				if(oldCleanup) {
-					e.cleanup();
+					oldCleanup();
 				}
 
 				e.dirty = false;
 			}
 		});
+	});
 
-
+	// For when the entire component is unmounted
+	useEffect(() => {
 		return () => {
 			scope.effects.map((e) => {
 				if(e.cleanup) {
@@ -181,7 +182,7 @@ export function useScope<T>(fn: (() => T)|null) : T|null {
 				}
 			});
 		};
-	});
+	}, []);
 
 	var runtime: ScopeRuntime = {
 		scope: scope,

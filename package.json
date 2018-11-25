@@ -1,6 +1,6 @@
 {
 	"name": "react-scoped-hooks",
-	"version": "0.8.1",
+	"version": "0.8.2",
 	"description": "Adds conditional statements and loops functionality to react hooks",
 	"main": "dist/index.js",
 	"scripts": {
